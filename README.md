@@ -17,3 +17,14 @@ bot.register() # Запустить бота и пройти начальную 
 
 sendMsg("Hello from bot") # Послать сообщение
 ```
+Есть возможность посылать сообщение через командную строку
+
+```
+python3 bot.py "hello some message"
+```
+## Installation
+
+```shell
+sudo apt-get install python3 python3-pip
+pip3 install telebot
+```

@@ -1,7 +1,9 @@
 import telebot
 import json
+import sys
+from pathlib import Path
 
-settings = json.load(open("settings.json"))
+settings = json.load(open( str(Path(__file__).parent) + "/settings.json"))
 if (settings.get('tgtoken', '') == ''):
     print( "No bot token specified" )
     exit(1)
@@ -37,3 +39,12 @@ def sendMsg(msg):
 
     bot.send_message(settings['tguser'], msg)
 
+if __name__ == "__main__":
+    if (len(sys.argv) < 2):
+        print( "usage: python3 bot.py \"some message to user\"" )
+        exit(1)
+
+    msg = sys.argv[1]
+
+    print( f" Send {msg}" )
+    sendMsg(msg)
